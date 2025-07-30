@@ -1,0 +1,51 @@
+<h2 mat-dialog-title>Add new task</h2>
+<form [formGroup]="dataForm" class="m-padding">
+  <mat-grid-list cols="2" rowHeight="80px" gutterSize="20px">
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" required />
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select formControlName="status" required>
+          <mat-option value="IN_PROGRESS">In progress</mat-option>
+          <mat-option value="COMPLETED">Completed</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-grid-tile>
+
+    <mat-grid-tile>
+      <mat-form-field appearance="outline">
+        <mat-label>Due Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="dueDate"
+          required
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile> </mat-grid-tile>
+  </mat-grid-list>
+
+  <mat-form-field appearance="outline" style="width: 100%; margin-top: 16px">
+    <mat-label>Description</mat-label>
+    <textarea
+      matInput
+      formControlName="description"
+      rows="4"
+      required
+    ></textarea>
+  </mat-form-field>
+  <mat-dialog-actions>
+    <button matButton (click)="openSnackBar()">Cancel</button>
+    <button matButton [disabled]="dataForm.invalid" (click)="onSubmit()">
+      Save
+    </button>
+  </mat-dialog-actions>
+</form>

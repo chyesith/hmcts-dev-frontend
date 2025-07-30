@@ -1,0 +1,103 @@
+.ag-theme-alpine {
+  min-height: 500px;
+  height: 500px;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(135deg, #4f95dc, #dbeafe);
+  color: #ffffff;
+
+  .grid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+
+    background: rgba(12, 18, 89, 0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    .header-title {
+      display: flex;
+      flex-direction: column;
+
+      h1 {
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+
+      .subtitle {
+        font-size: 0.875rem;
+        color: #6b7280;
+        margin-top: 0.25rem;
+      }
+    }
+
+    .header-controls {
+      display: flex;
+      gap: 1rem;
+
+      .btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        border-radius: 0.75rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        background: #ffffff;
+        color: #111827;
+
+        i {
+          font-size: 20px;
+        }
+
+        &:hover {
+          transform: translateY(-2px);
+          background: #f3f4f6;
+        }
+
+        &:active {
+          transform: scale(0.97);
+        }
+      }
+
+      .btn-refresh {
+        background: linear-gradient(to right, #e0f2fe, #bae6fd);
+        color: #0369a1;
+      }
+
+      .btn-export {
+        background: linear-gradient(to right, #dcfce7, #bbf7d0);
+        color: #166534;
+      }
+    }
+  }
+
+  .grid-wrapper {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+
+    .grid-component {
+      height: 100%;
+      background: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      padding: 1rem;
+    }
+  }
+}

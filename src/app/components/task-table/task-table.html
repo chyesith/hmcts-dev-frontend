@@ -1,0 +1,32 @@
+<div class="grid-container">
+  <header class="grid-header">
+    <div class="header-title">
+      <h1>Task Table</h1>
+    </div>
+    <div class="header-controls">
+      <button matFab extended (click)="openAddCaseDialog()">
+        <mat-icon>add</mat-icon>
+        Add new case
+      </button>
+      <button matFab extended (click)="refreshTasks()">
+        <mat-icon>sync</mat-icon>
+        Referesh
+      </button>
+    </div>
+  </header>
+  <div
+    class="content"
+    style="display: flex; flex-direction: column; width: 100%; height: 100vh"
+  >
+    <!-- The AG Grid component, with Dimensions, CSS Theme, Row Data, and Column Definition -->
+    <ag-grid-angular
+      style="width: 100%; height: 100%"
+      [columnDefs]="columnDefs"
+      [rowData]="rowData"
+      [defaultColDef]="defaultColDef"
+      [context]="{ componentParent: this }"
+      (cellValueChanged)="onCellValueChanged($event)"
+      (gridReady)="onGridReady($event)"
+    />
+  </div>
+</div>
